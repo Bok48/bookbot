@@ -1,10 +1,14 @@
 def main():
-    with open("books/frankenstein.txt") as f:
-        book = f.read()
+        book_path = "books/frankenstein.txt"
+        book = get_book(book_path)
         letters = get_letter_count(book)
         print(get_word_count(book))
         for letter in letters:
             print(letter)
+
+def get_book(path):
+    with open(path) as f:
+        return f.read()
 
 def get_word_count(text):
     words = text.split()
